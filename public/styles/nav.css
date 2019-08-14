@@ -1,0 +1,30 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+nav {
+  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+  background-color: #4056A1;
+  font-size: 32px;
+  font-family: Bungee, Source Sans Pro;
+  height: 120px;
+  z-index: 2;
+  padding: 1.5em;
+}
+
+.write-tweet {
+  float: right;
+  right: 0;
+  z-index: 1;
+  font-size: 20px;
+  font-family: Source Sans Pro;
+  height: 100px;
+}
