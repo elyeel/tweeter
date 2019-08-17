@@ -120,6 +120,34 @@ const loadTweets = function() {
 
 $(document).ready(function() {
   const load = loadTweets();
+  $(".compose-tweet").submit(function(event) {
+    event.preventDefault();
+    const tweetLength = $('.tweet-text').val().length;
+    const tweetText = $('.tweet-text').val();
+    if (tweetText === '' || tweetText === null) {
+      alert("Tweet is empty!!!");
+      return;
+    }
+    if (tweetLength > 140) {
+      alert("Your tweet is too long. Only 140 characters allowed.");
+      return;
+    }
+    //ajax post
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $('.compose-tweet').serialize(),
+      success: function () {
+        // $('.tweet-container').empty(); // clear the client side tweets
+        loadTweets(); // reloading the tweets back with latest update under success callback
+      }
+    })
+      .done(function(data, textStatus) {
+        // alert( "Data Saved: " + JSON.stringify(data) );
+        // // rerender the tweets
+        console.log('done:', textStatus);
+      });
+  })
 
   // const $tweet = createTweetElement(tweetData);
   
