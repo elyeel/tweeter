@@ -87,38 +87,7 @@ const createTweetElement = function(tweetData) { //this function also append it 
 
   //append header, body, and footer to container
   $article.append($header, $pTweet, $footer);
-  
-  //   article.append(` <header>
-              //   <span class="h-image">
-              //     <img src=${tweetData.user.avatars}>
-              //   </span>
-              //   <span class="h-name">
-              //     <h3>${tweetData.user.name}</h3>
-              //   </span>
-              //   <span class="h-aname">
-              //     <h3>${tweetData.user.handle}</h3>
-              //   </span>
-              // </header>
-              // <p>
-              //   ${tweetData.content.text}
-              // </p>
-              // <footer class="foot">
-              //   <span class="footer-left">
-              //     <h4>${newDateStr}</h4>
-              //   </span>
-              //   <span class="footer-right">
-              //       <i class='fas fa-flag' style='font-size:24px'></i>
-              //       <i class='fas fa-retweet' style='font-size:24px'></i>
-              //       <i class='fas fa-heart' style='font-size:24px'></i>
-              //   </span>
-              //   <!-- <h3>Footer Tweet</h3> -->
-              // </footer>`);
-
-
-// let main = document.querySelector("main");
-// main.className = "container";
-return $article;
-// $(".container").append(article);
+  return $article;
 };
 
 const renderTweets = function(tweets) {
@@ -126,6 +95,7 @@ const renderTweets = function(tweets) {
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   console.log('Render tweets called ', tweets);
+
   for (let tweet of tweets) {
     const appTweet = createTweetElement(tweet);
     $(".tweet-container").prepend(appTweet);
@@ -133,35 +103,44 @@ const renderTweets = function(tweets) {
 }
  
 const loadTweets = function() {
-      // ajax post
-      // $.ajax({
-      //   method: "GET",
-      //   url: "some.php"
-      // })
-      //   .done(function(data ) {
-      //     alert( "Data Saved: " + msg );
-      //     // rerender the tweets
-      //     const $tweet = renderTweets(data);
-      // });
   $.get("/tweets",data,renderTweets);
-  // .done(function(data) {
-  // // const $tweet = renderTweets(data);
-  //   console.log("Done --> ", arguments);
-  // });
 }
 
 $(document).ready(function() {
-  const load = loadTweets();
+  loadTweets();
+  const $newTweet = $('.new-tweet');
+  let isNew = false;
+  $newTweet.hide();
+
+  // check if new then click will open compose tweet
+  $('.write-tweet').click(function() {
+    if (!isNew) {
+      $newTweet.slideToggle();
+      $('textarea').val('').focus();
+      $('.counter').text('140');
+      isNew = true;
+    }
+  })
+
+  // // create error element
+  const $error = $('.error');
+  const $errMessage = $('.err-message');
+  $error.hide();
+
+  // compose new tweet function
   $(".compose-tweet").submit(function(event) {
     event.preventDefault();
-    const tweetLength = $('.tweet-text').text($('.tweet-text').val()).length;
+
+    const tweetLength = $('.tweet-text').val().length;
     const tweetText = $('.tweet-text').val();
     if (tweetText === '' || tweetText === null) {
-      alert("Tweet is empty!!!");
+      $errMessage.text("Tweet can not be empty, please enter your Tweet below");
+      $error.slideDown();
       return;
     }
     if (tweetLength > 140) {
-      alert("Your tweet is too long. Only 140 characters allowed.");
+      $errMessage.text("Your tweet is too long. Only 140 characters allowed.");
+      $error.slideDown();
       return;
     }
     //ajax post
@@ -170,16 +149,21 @@ $(document).ready(function() {
       url: "/tweets",
       data: $('.compose-tweet').serialize(),
       success: function () {
-        // $('.tweet-container').empty(); // clear the client side tweets
+        $('.tweet-container').empty(); // clear the client side tweets
         loadTweets(); // reloading the tweets back with latest update under success callback
       }
     })
-      .done(function(data, textStatus) {
-        // alert( "Data Saved: " + JSON.stringify(data) );
-        // // rerender the tweets
-        console.log('done:', textStatus);
-      });
+    .done(function(data, textStatus) {
+      // alert( "Data Saved: " + JSON.stringify(data) );
+      // // rerender the tweets
+      console.log('done:', textStatus);
+      $error.hide();
+      $('.new-tweet').hide();
+      $error.slideUp();
+      isNew = false;
+    });
   })
+  
 
   // const $tweet = createTweetElement(tweetData);
   

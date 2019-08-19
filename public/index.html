@@ -32,11 +32,14 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>Tweeter</span>
-      <span class="write-tweet"><strong>Write</strong> a new tweet</span>
+      <span class="write-tweet"><strong>Write</strong> a new tweet
+        <br><i class="fas fa-angle-double-down" aria-hidden="true"></i>
+      </span>
+
     </nav>
     <header>
         <div class="avatar">
-            <img src="/images/profile-hex.png"> 
+            <img src="/images/profile-man.png"> 
         </div>
         <br>
         <div>
@@ -46,6 +49,9 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="error">
+        <p class="err-message">Test</p>
+      </section>
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form class="compose-tweet" method="POST" action="/tweets">
@@ -55,64 +61,8 @@
         </form>
       </section>
       <section class="tweet-container"></section>
-      <!-- <article class="tweet">
-        <header>
-          <span class="h-image">
-            <img src="/images/businessman.png">
-          </span>
-          <span class="h-name">
-            <h3>Name</h3>
-          </span>
-          <span class="h-aname">
-            <h3>@Name</h3>
-          </span>
-        </header>
-        <p>
-          If I have seen further it is by standing on the shoulders of giants
-        </p>
-        <footer class="foot">
-          <span class="footer-left">
-            <h4>10 days ago</h4>
-          </span>
-          <span class="footer-right">
-              <i class='fas fa-flag' style='font-size:24px'></i>
-              <i class='fas fa-retweet' style='font-size:24px'></i>
-              <i class='fas fa-heart' style='font-size:24px'></i>
-          </span>
-          <h3>Footer Tweet</h3>
-        </footer>
-      </article> -->
     </main>
       
-  <script>
-    // $(".compose-tweet").submit(function(event) {
-    //   event.preventDefault();
-    //   const tweetLength = $('.tweet-text').val().length;
-    //   const tweetText = $('.tweet-text').val();
-    //   if (tweetText === '' || tweetText === null) {
-    //     alert("Tweet is empty!!!");
-    //     return;
-    //   }
-    //   if (tweetLength > 140) {
-    //     alert("Your tweet is too long. Only 140 characters allowed.");
-    //     return;
-    //   }
-    //   //ajax post
-    //   $.ajax({
-    //     method: "POST",
-    //     url: "/tweets",
-    //     data: $('.compose-tweet').serialize(),
-    //     success: function () {
-    //       $('.tweet-container').empty(); // clear the client side tweets
-    //       loadTweets(); // reloading the tweets back with latest update under success callback
-    //     }
-    //   })
-    //     .done(function(data, textStatus) {
-    //       // alert( "Data Saved: " + JSON.stringify(data) );
-    //       // // rerender the tweets
-    //       console.log('done:', textStatus);
-    //     });
-    // })
-  </script>
+  
   </body>
 </html>

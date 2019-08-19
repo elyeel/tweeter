@@ -5,3 +5,18 @@
   margin-right: 5%;
   margin-top: 5%; */
 }
+
+.err-message {
+  text-align: center;
+  color: red;
+}
+
+.error {
+  border: 2px red;
+  border-style: solid;
+  width: 80%;
+  border-radius: 10px;
+  position: relative;
+  font-family: source sans pro, sans-serif;
+  margin: auto;
+}
