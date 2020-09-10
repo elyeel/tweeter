@@ -1,0 +1,42 @@
+nav {
+  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+  background-color: #4056A1;
+  font-size: 32px;
+  font-family: Bungee, Source Sans Pro;
+  height: 120px;
+  z-index: 2;
+  padding: 1.5em;
+}
+
+.write-tweet {
+  /* display: inline-block; */
+  float: right;
+  right: 0;
+  z-index: 1;
+  font-size: 20px;
+  font-family: Source Sans Pro;
+  height: 100px;
+}
+
+.write-tweet:hover {
+  text-shadow: 10px 10px rgb(51, 63, 105);
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.fa-angle-double-down {
+  margin-left: 45%;
+  animation: bounce 1.0s infinite;
+}
+
+.fa-angle-double-down:hover {
+  background: rgb(52, 2, 145);
+  border-radius: 10%;
+  font-size: 2em;
+  cursor: pointer;
+}
