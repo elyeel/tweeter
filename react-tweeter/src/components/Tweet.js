@@ -1,24 +1,24 @@
 import React from "react";
-import './Tweet.css'
+import "./Tweet.css";
 
-export const Tweet = () => {
+export const Tweet = ({name,text,profile_image,date,handle}) => {
   return (
     <article className="tweet">
       <header>
         <span className="h-image">
-          <img src="https://i.imgur.com/73hZDYK.png" />
+          <img src={profile_image} />
         </span>
         <span className="h-name">
-          <h3>Newton</h3>
+          <h3>{name}</h3>
         </span>
         <span className="h-aname">
-          <h3>@SirIsaac</h3>
+          <h3>{handle}</h3>
         </span>
       </header>
-      <p>If I have seen further it is by standing on the shoulders of giants</p>
+      <p>{text}</p>
       <footer className="foot">
         <span className="footer-left">
-          <h4>1604 days ago</h4>
+          <h4>{date}</h4>
         </span>
         <span className="footer-right">
           <i className="fas fa-flag"></i>
