@@ -1,7 +1,6 @@
 .tweet {
   margin-top: 20px;
-
-} 
+}
 
 .tweet header {
   display: inline-block;
@@ -15,20 +14,19 @@
 .h-name {
   display: inline-block;
   margin: auto;
-
 }
 
 .h-image img {
   vertical-align: middle;
 }
 
-article.tweet header{
+article.tweet header {
   color: red;
   font-family: source sans pro;
   background-color: #f4f1ec;
   height: 100px;
 }
-article.tweet h1{
+article.tweet h1 {
   color: blue;
 }
 article.tweet {
@@ -36,16 +34,14 @@ article.tweet {
   padding: 10px;
   border-style: solid;
 }
-  
+
 .tweet p {
   border-bottom: 3px black;
   border-style: solid;
-  border-top:none;
+  border-top: none;
   border-left: none;
   border-right: none;
   padding: 5px;
-
-  
 }
 
 .footer-left {
@@ -58,14 +54,42 @@ article.tweet {
 .footer-right {
   float: right;
   vertical-align: bottom;
-  margin-top: -.75em;
+  margin-top: -0.75em;
 }
 
 .foot {
   margin-top: 30px;
   display: block;
 }
-article.tweet:hover{
+article.tweet:hover {
   /* background-color: aqua; */
   box-shadow: 10px 10px 5px;
+}
+
+/* scroll up section */
+.scroll-up {
+  border: none;
+  border-radius: 50%;
+  background: red;
+  outline: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+
+.scroll-up-icon {
+  color: orange;
+  font-size: 5rem;
+  transition: color 0.5s;
+}
+
+.scroll-up-icon:hover {
+  color: blue;
+  transition: color 0.5s;
+}
+
+.show {
+  display: inline-block;
 }
