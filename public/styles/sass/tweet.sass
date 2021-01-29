@@ -1,0 +1,87 @@
+$article-tweet-header: red
+$article-tweet-header-font: source sans pro, sans-serif
+$article-tweet-h1: blue
+$scroll-up-colour: orange
+$background-colour: #f4f1ec
+$border-colour: black
+
+.tweet
+  margin-top: 20px
+
+  header
+    display: inline-block
+
+  p
+    border-bottom: 3px $border-colour
+    border-style: solid
+    border-top: none
+    border-left: none
+    border-right: none
+    padding: 5px
+
+.h-aname
+  display: inline-block
+
+.h-name
+  display: inline-block
+  margin: auto
+
+.h-image
+  img
+    vertical-align: middle
+
+article
+  &.tweet
+    border: 3px $border-colour
+    padding: 10px
+    border-style: solid
+
+    header
+      color: $article-tweet-header
+      font-family: $article-tweet-header-font
+      background-color: $background-colour
+      height: 100px
+
+    h1
+      color: $article-tweet-h1
+
+  &:hover
+    box-shadow: 10px 10px 5px
+
+.footer-left
+  font-size: 20px
+  font-family: $article-tweet-header-font
+  float: left
+  margin-top: -2em
+
+.footer-right
+  float: right
+  vertical-align: bottom
+  margin-top: -0.75em
+
+.foot
+  margin-top: 30px
+  display: block
+
+.scroll-up
+  border: none
+  border-radius: 50%
+  background: $article-tweet-header
+  outline: none
+  cursor: pointer
+  position: fixed
+  bottom: 10px
+  right: 10px
+  display: none
+
+.scroll-up-icon
+  color: orange
+  font-size: 5rem
+  transition: color 0.5s
+
+  &:hover
+    color: $article-tweet-h1
+    transition: color 0.5s
+
+.show
+  display: inline-block

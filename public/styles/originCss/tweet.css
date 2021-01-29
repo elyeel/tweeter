@@ -1,20 +1,14 @@
 .tweet {
   margin-top: 20px;
 }
+
 .tweet header {
   display: inline-block;
-}
-.tweet p {
-  border-bottom: 3px black;
-  border-style: solid;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  padding: 5px;
 }
 
 .h-aname {
   display: inline-block;
+  float: right;
 }
 
 .h-name {
@@ -26,22 +20,28 @@
   vertical-align: middle;
 }
 
-article.tweet {
-  border: 3px black;
-  padding: 10px;
-  border-style: solid;
-}
 article.tweet header {
   color: red;
-  font-family: source sans pro, sans-serif;
+  font-family: source sans pro;
   background-color: #f4f1ec;
   height: 100px;
 }
 article.tweet h1 {
   color: blue;
 }
-article:hover {
-  box-shadow: 10px 10px 5px;
+article.tweet {
+  border: 3px black;
+  padding: 10px;
+  border-style: solid;
+}
+
+.tweet p {
+  border-bottom: 3px black;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 5px;
 }
 
 .footer-left {
@@ -61,7 +61,12 @@ article:hover {
   margin-top: 30px;
   display: block;
 }
+article.tweet:hover {
+  /* background-color: aqua; */
+  box-shadow: 10px 10px 5px;
+}
 
+/* scroll up section */
 .scroll-up {
   border: none;
   border-radius: 50%;
@@ -79,6 +84,7 @@ article:hover {
   font-size: 5rem;
   transition: color 0.5s;
 }
+
 .scroll-up-icon:hover {
   color: blue;
   transition: color 0.5s;
@@ -87,5 +93,3 @@ article:hover {
 .show {
   display: inline-block;
 }
-
-/*# sourceMappingURL=tweet.css.map */

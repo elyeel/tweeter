@@ -1,6 +1,9 @@
 .container {
   width: 90%;
   margin: 5%;
+  /* margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%; */
 }
 
 .err-message {
@@ -17,5 +20,3 @@
   font-family: source sans pro, sans-serif;
   margin: auto;
 }
-
-/*# sourceMappingURL=main.css.map */

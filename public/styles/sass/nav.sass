@@ -1,0 +1,50 @@
+$colour: #4056A1
+$nav-colour: #ffffff
+$font: Bungee, Source Sans Pro
+$font-tweet: Source Sans Pro
+$hover: rgb(51, 63, 105)
+$hover-icon: rgb(52, 2, 145)
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+
+nav
+  float: left
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  color: $nav-colour
+  background-color: $colour
+  font-size: 32px
+  font-family: $font
+  height: 120px
+  z-index: 2
+  padding: 1.5em
+
+.write-tweet
+  /* display: inline-block; */
+  float: right
+  right: 0
+  z-index: 1
+  font-size: 20px
+  font-family: $font-tweet
+  height: 100px
+
+  &:hover
+    text-shadow: 10px 10px $hover
+    cursor: pointer
+    font-size: 25px
+
+.fa-angle-double-down
+  margin-left: 45%
+  animation: bounce 1.0s infinite
+
+  &:hover
+    background: $hover-icon
+    border-radius: 10%
+    font-size: 2em
+    cursor: pointer
